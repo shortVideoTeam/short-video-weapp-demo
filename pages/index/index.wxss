@@ -1,0 +1,8 @@
+/**index.wxss**/
+.userinfo {
+  margin: 40rpx auto;
+}
+
+.phone {
+  margin: 40rpx auto;
+}

@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button bindtap="getUserProfile"> 获取头像昵称 </button>
+  </view>
+  <view class="phone">
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
+  </view>
+  <view class="userinfo" bindtap="addVideo">上传视频</view>
+</view>
