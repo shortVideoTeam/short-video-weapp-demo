@@ -85,15 +85,6 @@ Page({
     wx.requestPayment
   },
 
-  recharge() {
-    request('http://localhost:8091/', {}, "POST").then(res => {
-      console.log(res)
-
-    }).catch(res => {
-      console.log(res)
-    })
-  },
-
   pay() {
     request('http://localhost:8081/business/recharge/recharge', {
       "amount": 1,
