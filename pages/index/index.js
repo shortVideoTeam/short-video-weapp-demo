@@ -1,13 +1,13 @@
 const app = getApp()
 
-function request(url, data, method = 'GET') {
+function request(url, data, method = 'GET', config = {}) {
   return new Promise((resolve, reject) => {
     wx.request({
       url: url,
       data: data,
       header: {
         'content-type': 'application/json',
-        'Authorization':'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjQ4MDMzMDksInVzZXJuYW1lIjoiMTAwMDgifQ.7deSEyTk_iHH3ueh6I_VjzpZq8F7dwN14NbDiKFlbHM'
+        ...config
       },
       method: method,
       success: (res) => {
@@ -100,7 +100,9 @@ Page({
       "domain": "",
       "payWay": "1",
       "rechargeRuleId": 1
-    }, "POST").then(res => {
+    }, "POST", {
+      'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjQ4MDMzMDksInVzZXJuYW1lIjoiMTAwMDgifQ.7deSEyTk_iHH3ueh6I_VjzpZq8F7dwN14NbDiKFlbHM'
+    }).then(res => {
       console.log(res)
       wx.requestPayment({
         timeStamp: res.data.timeStamp,
