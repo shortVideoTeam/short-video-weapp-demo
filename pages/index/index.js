@@ -94,7 +94,12 @@ Page({
   },
 
   pay() {
-    request('http://localhost:8091/pay', {}, "POST").then(res => {
+    request('http://localhost:8081/business/recharge/recharge', {
+      "amount": 1,
+      "domain": "",
+      "payWay": "1",
+      "rechargeRuleId": 1
+    }, "POST").then(res => {
       console.log(res)
       wx.requestPayment({
         timeStamp: res.timeStamp,
