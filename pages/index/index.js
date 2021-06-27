@@ -6,7 +6,8 @@ function request(url, data, method = 'GET') {
       url: url,
       data: data,
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'Authorization':'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjQ4MDMzMDksInVzZXJuYW1lIjoiMTAwMDgifQ.7deSEyTk_iHH3ueh6I_VjzpZq8F7dwN14NbDiKFlbHM'
       },
       method: method,
       success: (res) => {
@@ -102,11 +103,11 @@ Page({
     }, "POST").then(res => {
       console.log(res)
       wx.requestPayment({
-        timeStamp: res.timeStamp,
-        nonceStr: res.nonceStr,
-        package: res.package,
-        signType: res.signType,
-        paySign: res.paySign,
+        timeStamp: res.data.timeStamp,
+        nonceStr: res.data.nonceStr,
+        package: res.data.packageValue,
+        signType: res.data.signType,
+        paySign: res.data.paySign,
         'success': function (res) {
           console.log(res)
         },
