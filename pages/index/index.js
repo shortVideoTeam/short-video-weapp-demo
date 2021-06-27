@@ -74,11 +74,44 @@ Page({
   addVideo() {
     console.log('add')
     request('http://localhost:8091/', {
-      
+
     }, "POST").then(res => {
       console.log(res)
     }).catch(res => {
       console.log(res)
     })
+
+    wx.requestPayment
+  },
+
+  recharge() {
+    request('http://localhost:8091/', {}, "POST").then(res => {
+      console.log(res)
+
+    }).catch(res => {
+      console.log(res)
+    })
+  },
+
+  pay() {
+    request('http://localhost:8091/pay', {}, "POST").then(res => {
+      console.log(res)
+      wx.requestPayment({
+        timeStamp: res.timeStamp,
+        nonceStr: res.nonceStr,
+        package: res.package,
+        signType: res.signType,
+        paySign: res.paySign,
+        'success': function (res) {
+          console.log(res)
+        },
+        'fail': function (res) {
+          console.log(res)
+        }
+      })
+    }).catch(res => {
+      console.log(res)
+    })
+
   }
 })
