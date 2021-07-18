@@ -25,8 +25,24 @@ Page({
   data: {
     userInfo: {},
   },
-  onLoad() {
+  onLoad(options) {
+    console.log(options)
+    const inviteCode = options.inviteCode || null
+    // 是否有邀请码, 前端判断
+    if (inviteCode) {
+      // 登陆 前端判断 去登陆
 
+      // 有token 
+      // if(token)
+      // 存在 , 代表通过别人邀请码点击进来
+      // 调用接口， 这个用户邀请记录表是否存在, 不存在绑定当前用户给邀请者
+
+      // 弹出红包弹窗 ,前端判断
+      // 判断有没有领取过红包, 没有就加记录, 给当前用户和邀请者都分发红包金额 ， 扣除总金额， 添加记录
+      // 如果已经领取过了， 后台就不做处理直接给提示已领取过了 
+    } else {
+
+    }
   },
   getUserProfile(e) {
     let code = null
