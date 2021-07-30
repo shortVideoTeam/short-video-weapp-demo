@@ -58,7 +58,7 @@ Page({
       success: (res) => {
         console.log(code)
         console.log(res)
-        request('http://localhost:8091/wx/user/auth', {
+        request('http://localhost:8081/wx/user/auth', {
           code: code,
           appid: 'wx9732fa565cbd06fd',
           encryptedData: res.encryptedData,
@@ -76,7 +76,7 @@ Page({
   },
   getPhoneNumber(e) {
     console.log(e.detail)
-    request('http://localhost:8091/wx/user/phone', {
+    request('http://localhost:8081/wx/user/phone', {
       userKey: 'ov8Tx4mxk6W0XhTHwBBuAmgY5-cc',
       appid: 'wx9732fa565cbd06fd',
       encryptedData: e.detail.encryptedData,
@@ -90,7 +90,7 @@ Page({
 
   addVideo() {
     console.log('add')
-    request('http://localhost:8091/', {
+    request('http://localhost:8081/', {
 
     }, "POST").then(res => {
       console.log(res)
